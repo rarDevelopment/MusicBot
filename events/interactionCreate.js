@@ -9,7 +9,7 @@ module.exports = async (client, interaction) => {
         fs.readdir(config.commandsDir, (err, files) => {
             if (err) throw err;
             files.forEach(async (f) => {
-                let props = require(`.${config.commandsDir}/${f}`);
+                let props = require(`${config.commandsDir}/${f}`);
                 if (interaction.commandName.toLowerCase() === props.name.toLowerCase()) {
                     try {
                         if (interaction.member.permissions.has(props?.permissions || "0x0000000000000800")) {

@@ -19,7 +19,7 @@ client.config = config;
 client.player = new Player(client, client.config.opt.discordPlayer);
 const player = client.player
 
-fs.readdir("./events", (_err, files) => {
+fs.readdir(config.eventsDir, (_err, files) => {
   files.forEach((file) => {
     if (!file.endsWith(".js")) return;
     const event = require(`./events/${file}`);

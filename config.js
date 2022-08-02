@@ -1,8 +1,11 @@
 const token = require('./token.js');
+const path = require('path');
+
 module.exports = {
     TOKEN: token.botToken,
-    status: '🎵 music.help',
-    commandsDir: './commands', //Please don't touch
+    status: '❤️ Umut Bayraktar',
+    commandsDir: path.join(__dirname, './commands'), //Please don't touch
+    eventsDir: path.join(__dirname, './events'),
 
     opt: {
         DJ: {
