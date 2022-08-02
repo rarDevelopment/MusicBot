@@ -1,5 +1,6 @@
 const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { QueryType } = require('discord-player');
+const config = require('../config');
 module.exports = {
   name: "search",
   description: "Used for your music search",
@@ -37,7 +38,7 @@ module.exports = {
     embed.setDescription(`${maxTracks.map((track, i) => `**${i + 1}**. ${track.title} | \`${track.author}\``).join('\n')}\n\nChoose a song from **1** to **${maxTracks.length}** write send or write **cancel** and cancel selection.⬇️`)
 
     embed.setTimestamp();
-    embed.setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+    embed.setFooter({ text: config.footer })
 
     interaction.reply({ embeds: [embed] }).catch(e => { })
 

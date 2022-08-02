@@ -1,5 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const db = require("croxydb");
+const config = require("../config");
 module.exports = {
   name: "queue",
   description: "It shows you the playlist.",
@@ -145,7 +146,7 @@ ${await Promise.all(current.map(data =>
           .setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
           .setColor('007fff')
           .setDescription(`Your time has expired to use this command, you can type \`/queue\` to use the command again.`)
-          .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+          .setFooter({ text: config.footer })
         return interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { })
 
       })

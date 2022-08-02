@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
+const config = require("../config");
 module.exports = {
     name: "save",
     description: "It sends and saves the played music to you via dm box.",
@@ -21,7 +22,7 @@ module.exports = {
                 { name: `Requested By`, value: `${queue.current.requestedBy}` }
             ])
             .setTimestamp()
-            .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+            .setFooter({ text: config.footer })
         interaction.user.send({ embeds: [embed] }).then(() => {
             interaction.reply({ content: `I sent the name of the music via private message. ✅`, ephemeral: true }).catch(e => { })
         }).catch(error => {

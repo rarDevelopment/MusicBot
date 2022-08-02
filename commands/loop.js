@@ -1,6 +1,7 @@
 const { QueueRepeatMode } = require('discord-player');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const db = require("croxydb");
+const config = require("../config");
 module.exports = {
   name: "loop",
   description: "Turns the music loop mode on or off.",
@@ -24,7 +25,7 @@ module.exports = {
       .setTitle('Loop System')
       .setDescription(`**${queue.current.title}** is now looping.`)
       .setTimestamp()
-      .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+      .setFooter({ text: config.footer })
     interaction.reply({ embeds: [embed], components: [button], fetchReply: true }).then(async Message => {
       await db.set("loop." + interaction.user.id + interaction.guild.id + interaction.channel.id, Message.id)
       const filter = i => i.user.id === interaction.user.id
@@ -56,7 +57,7 @@ module.exports = {
           .setTitle('Loop System - Ended')
           .setDescription(`Your time is up to choose.`)
           .setTimestamp()
-          .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+          .setFooter({ text: config.footer })
 
         await interaction.editReply({ embeds: [embed], components: [button] }).catch(e => { });
       })

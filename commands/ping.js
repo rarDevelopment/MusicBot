@@ -1,4 +1,5 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js');
+const config = require("../config");
 module.exports = {
     name: "ping",
     description: "It helps you to get information about the speed of the bot.",
@@ -17,7 +18,7 @@ module.exports = {
                 { name: `API Latency`, value: `\`${Math.round(client.ws.ping)}ms\` 🛰️` }
             ])
             .setTimestamp()
-            .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+            .setFooter({ text: config.footer })
         interaction.reply({ embeds: [embed] }).catch(e => { });
 
     },

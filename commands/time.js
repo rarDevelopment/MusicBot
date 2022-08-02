@@ -1,4 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const config = require('../config');
 module.exports = {
     name: "time",
     description: "Indicates which minute of the music you are playing.",
@@ -26,7 +27,7 @@ module.exports = {
             .setThumbnail(client.user.displayAvatarURL())
             .setTimestamp()
             .setDescription(`${progress} (**${timestamp.progress}**%)`)
-            .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+            .setFooter({ text: config.footer })
         interaction.reply({ embeds: [embed], components: [row] }).catch(e => { })
     },
 };

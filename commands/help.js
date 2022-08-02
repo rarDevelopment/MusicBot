@@ -1,4 +1,5 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require('discord.js');
+const config = require("../config");
 module.exports = {
     name: "help",
     description: "It helps you to get information about bot and commands.",
@@ -18,7 +19,7 @@ module.exports = {
                 { name: `Bot Commands`, value: commands.map(x => `\`/${x.name}\``).join(' | ') }
             ])
             .setTimestamp()
-            .setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+            .setFooter({ text: config.footer })
         interaction.reply({ embeds: [embed] }).catch(e => { })
     },
 };

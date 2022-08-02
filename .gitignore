@@ -1,4 +1,4 @@
 node_modules
-start.bat
 schedule.bat
 token.js
+package-lock.json

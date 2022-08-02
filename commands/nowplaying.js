@@ -1,4 +1,5 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const config = require("../config");
 
 module.exports = {
     name: "nowplaying",
@@ -25,7 +26,7 @@ module.exports = {
         embed.setDescription(`Audio **%${queue.volume}**\nDuration **${trackDuration}**\nURL: ${track.url}\nLoop Mode **${methods[queue.repeatMode]}**\n${track.requestedBy}`);
 
         embed.setTimestamp();
-        embed.setFooter({ text: `Code Share - by Umut Bayraktar ❤️` })
+        embed.setFooter({ text: config.footer })
 
         const saveButton = new ButtonBuilder();
         saveButton.setLabel('Save Song');

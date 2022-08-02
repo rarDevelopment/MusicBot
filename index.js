@@ -1,6 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const { Player } = require('discord-player');
-const config = require("./config")
+const config = require("./config");
 const TOKEN = config.TOKEN || process.env.TOKEN;
 const fs = require('fs');
 const client = new Client({
